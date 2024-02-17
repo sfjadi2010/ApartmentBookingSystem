@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ABS.Domain.Entities.Abstractions;
+﻿namespace ABS.Domain.Entities.Abstractions;
 
 public abstract class Entity
 {
@@ -13,6 +7,7 @@ public abstract class Entity
         Id = id;
     }
     public Guid Id { get; init; }
+
     private readonly List<IDomainEvent> _domainEvents = new();
 
     public IReadOnlyCollection<IDomainEvent> GetDomainEvents => _domainEvents.ToList().AsReadOnly();
