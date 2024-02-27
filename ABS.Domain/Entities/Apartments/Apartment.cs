@@ -1,4 +1,5 @@
 ﻿using ABS.Domain.Entities.Abstractions;
+using ABS.Domain.Entities.Shared;
 
 namespace ABS.Domain.Entities.Apartments;
 
@@ -12,7 +13,8 @@ public sealed class Apartment : Entity
         Money price, 
         Money deposit, 
         Money cleaningFee, 
-        List<Amenity> amenities, 
+        List<Amenity> amenities,
+        DateTime LastBookedOnUtc,
         Address address) : base(id)
     {
         Name = name;
@@ -22,6 +24,7 @@ public sealed class Apartment : Entity
         Deposit = deposit;
         CleaningFee = cleaningFee;
         Amenities = amenities;
+        LastBookedOnUtc = LastBookedOnUtc;
         Address = address;
     }
 
@@ -33,5 +36,7 @@ public sealed class Apartment : Entity
     public Money CleaningFee { get; private set; }
    
     public List<Amenity> Amenities { get; private set; }
+
+    public DateTime LastBookedOnUtc { get; internal set; }
     public Address Address { get; private set; }
 }
